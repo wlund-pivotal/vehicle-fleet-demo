@@ -1,0 +1,10 @@
+---
+git-uri: https://github.com/bkamysz-pivotal/vehicle-fleet-demo
+git-branch: master
+cf-api-uri: cf-api-uri
+cf-target-url: cf-target-url
+cf-skip-ssl: true
+cf-username: username
+cf-password: password
+cf-org: org
+cf-space: dev

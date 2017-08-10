@@ -1,0 +1,37 @@
+applications:
+- name: fleet-location-simulator
+  services:
+    - rabbitmq
+#    - zipkin
+    - configserver
+    - eureka
+- name: fleet-location-ingest
+  services:
+    - rabbitmq
+#    - zipkin
+    - configserver
+    - eureka
+- name: fleet-location-updater
+  services:
+    - rabbitmq
+#    - zipkin
+    - configserver
+    - eureka
+- name: fleet-location-service
+  services:
+    - mysql
+#    - zipkin
+    - configserver
+    - eureka
+- name: service-location-service
+  services:
+    - mongodb
+#    - zipkin
+    - configserver
+    - eureka
+- name: dashboard
+  host: fleet-dashboard
+  services:
+#    - zipkin
+    - configserver
+    - eureka
