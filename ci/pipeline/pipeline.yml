@@ -10,68 +10,63 @@ groups:
 - name: release
   jobs:
   - prepare-cf-env
-  - build-accounts
+  - build-service
 - name: destroy
   jobs:
   - destroy
 
 jobs:
-#- name: destroy
-#  public: true
-#  plan:
-#  - get: workspace
+- name: destroy
+  public: true
+  plan:
+  - get: vehicle-fleet-demo
 #  - put: cf-delete
 #    resource: cf-env
 #    params:
 #      command: delete
 #      app_name: accounts
 #      delete_mapped_routes: true
-#  - aggregate:
-#    - put: cf-delete-service
-#      resource: cf-env
-#      params:
-#        command: delete-service
-#        service_instance: {{cf-db-service-name}}
-#    - put: cf-delete-service
-#      resource: cf-env
-#      params:
-#        command: delete-service
-#        service_instance: config-server
-#    - put: cf-delete-service
-#      resource: cf-env
-#      params:
-#        command: delete-service
-#        service_instance: discovery-service
-#    - put: cf-delete-service
-#      resource: cf-env
-#      params:
-#        command: delete-service
-#        service_instance: circuit-breaker-dashboard
-#    - put: cf-delete-service
-#      resource: cf-env
-#      params:
-#        command: delete-service
-#        service_instance: zipkinRabbit
+  - aggregate:
+    - put: cf-delete-service
+      resource: cf-env
+      params:
+        command: delete-service
+        service_instance: mysql
+    - put: cf-delete-service
+      resource: cf-env
+      params:
+        command: delete-service
+        service_instance: configserver
+    - put: cf-delete-service
+      resource: cf-env
+      params:
+        command: delete-service
+        service_instance: eureka
+    - put: cf-delete-service
+      resource: cf-env
+      params:
+        command: delete-service
+        service_instance: rabbitmq
 
-#- name: build-service
-#  public: true
-#  serial: true
-#  plan:
-#  - get: workspace
-##    passed: [ prepare-cf-env ]
-#    trigger: true
-#  - task: build
-#    file: workspace/ci/tasks/build-service/task.yml
+- name: build-service
+  public: true
+  serial: true
+  plan:
+  - get: vehicle-fleet-demo
+    passed: [ prepare-cf-env ]
+    trigger: true
+  - task: build
+    file: vehicle-fleet-demo/ci/tasks/build-service/task.yml
 #    params:
 #      ARTIFACT_ID: accounts
-#  - put: cf-zero-downtime-push
-#    resource: cf-env
-#    params:
-#      command: zero-downtime-push
-#      manifest: build-output/manifest.yml
-#      environment_variables:
-#        TRUST_CERTS: {{cf-api-uri}}
-#        CF_TARGET: {{cf-target-url}}
+  - put: cf-zero-downtime-push
+    resource: cf-env
+    params:
+      command: zero-downtime-push
+      manifest: build-output/manifest.yml
+      environment_variables:
+        TRUST_CERTS: {{cf-api-uri}}
+        CF_TARGET: {{cf-target-url}}
 
 - name: prepare-cf-env
   public: true

@@ -8,7 +8,7 @@ image_resource:
     tag: '8'
 
 inputs:
-- name: workspace
+- name: vehicle-fleet-demo
 
 outputs:
 - name: build-output
@@ -17,4 +17,4 @@ params:
   TERM: dumb
 
 run:
-  path: workspace/ci/tasks/build-service/task.sh
+  path: vehicle-fleet-demo/ci/tasks/build-service/task.sh

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-pushd workspace
+pushd vehicle-fleet-demo
     ./mvnw clean install
 popd
 
