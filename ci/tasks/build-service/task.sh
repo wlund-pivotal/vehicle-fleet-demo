@@ -5,7 +5,7 @@ pushd vehicle-fleet-demo
     ./mvnw clean install
 popd
 
-mkdir build-output/libs
+mkdir build-output
 
 cp vehicle-fleet-demo/fleet-location-service/target/fleet-location-service-1.0.0.BUILD-SNAPSHOT.jar build-output/
 cp vehicle-fleet-demo/fleet-location-simulator/target/fleet-location-simulator-1.0.0.BUILD-SNAPSHOT.jar build-output/
