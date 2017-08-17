@@ -3,3 +3,11 @@ server:
 spring:
   application:
     name: fleet-location-service
+
+spring:
+  application:
+    name: service-location-service
+  data:
+    mongodb:
+#      uri: mongodb://{$MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/test}
+      uri: mongo://root:bitnami@10.193.145.103:27017/test
