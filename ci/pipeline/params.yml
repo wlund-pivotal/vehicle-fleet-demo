@@ -1,0 +1,16 @@
+git-uri: https://github.com/wlund-pivotal/vehicle-fleet-demo
+git-branch: master
+cf-api-uri: api.local.pcfdev.io
+cf-target-url: https://api.local.pcfdev.io
+cf-skip-ssl: true
+cf-username: admin
+cf-password: admin
+cf-org: pcfdev-org
+cf-space: pcfdev-space
+mongodb-username: 
+mongodb-password:
+mongodb-host: localhost
+mongodb-port: 27017
+
+
+
