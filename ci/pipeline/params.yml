@@ -3,8 +3,8 @@ git-branch: master
 cf-api-uri: api.local.pcfdev.io
 cf-target-url: https://api.local.pcfdev.io
 cf-skip-ssl: true
-cf-username: admin
-cf-password: admin
+cf-username: user
+cf-password: pass
 cf-org: pcfdev-org
 cf-space: pcfdev-space
 mongodb-username: 
