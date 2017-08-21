@@ -7,8 +7,6 @@ cf-username: user
 cf-password: pass
 cf-org: pcfdev-org
 cf-space: pcfdev-space
-#mongodb-username: 
-#mongodb-password:
 mongodb-host: localhost
 mongodb-port: 27017
 
